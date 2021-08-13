@@ -22,7 +22,7 @@ justify-content: center;
             @media screen and (max-width: 425px) {
                 display: inline-block;
                 background: radial-gradient(ellipse at bottom, var(--bg-write), var(--bg-blue));
-                height: 10rem;
+                height: 18rem;
             }
     }
 
