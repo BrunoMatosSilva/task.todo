@@ -16,12 +16,12 @@ justify-content: center;
     }
 
     .bgBlue {
-        background: radial-gradient(ellipse at bottom, var(--bg-write), var(--bg-blue));
+        background: radial-gradient(ellipse at bottom, var(--write), var(--blue));
         height: 25rem;
 
             @media screen and (max-width: 425px) {
                 display: inline-block;
-                background: radial-gradient(ellipse at bottom, var(--bg-write), var(--bg-blue));
+                background: radial-gradient(ellipse at bottom, var(--write), var(--blue));
                 height: 18rem;
             }
     }
@@ -57,7 +57,7 @@ justify-content: center;
             h1:last-child {
                 font-size: 3rem;
                 font-weight: 400;
-                color: var(--bg-blue);
+                color: var(--blue);
             }
 
             span {

@@ -1,18 +1,18 @@
 import { AiFillHome } from 'react-icons/Ai';
 import { GoSignOut } from 'react-icons/Go';
 
-import { Content } from '../../styles/Header';
+import { HeaderContent } from '../../styles/Header';
 
 
 export function Header() {
     return (
         <>
-            <Content>
+            <HeaderContent>
                 <div>
-                    <span><AiFillHome /></span>
-                    <span><GoSignOut /></span>
+                    <button><AiFillHome /></button>
+                    <button><GoSignOut /></button>
                 </div>
-            </Content>
+            </HeaderContent>
         </>
     );
 }

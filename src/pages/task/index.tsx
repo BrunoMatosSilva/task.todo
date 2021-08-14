@@ -1,5 +1,9 @@
 import Head from "next/head";
 import { Header } from "../../components/Header";
+import { User } from "../../components/User";
+import { ContentTask } from "../../styles/Task";
+
+import { AiOutlineSearch, AiOutlineFilter } from "react-icons/Ai";
 
 export default function Task() {
     return (
@@ -8,9 +12,25 @@ export default function Task() {
                 <title>Tasks | Task.todo</title>
             </Head>
             <Header />
-            <body>
-                <h1>App aqui</h1>
-            </body>
+            <User />
+            <ContentTask>
+                <section>
+                    <div>
+                        <input type="text" />
+                        <div id="lupa" ><AiOutlineSearch /></div>
+                    </div>
+
+                    <div>
+                        <span><AiOutlineFilter /></span>
+                        <select>
+                            <option value="all">All</option>
+                            <option value="completed">Finalizadas</option>
+                            <option value="uncompleted">Pendentes</option>
+                            <option value="cancelled">Canceladas</option>
+                        </select>
+                    </div>
+                </section>
+            </ContentTask>
         </>
     );
 }

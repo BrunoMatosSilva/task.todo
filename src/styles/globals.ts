@@ -3,9 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
     :root {
         --red: #E52E4D;
-        --bg-write: #FFFFFF;
-        --bg-blue: #4285F4;
-        --bg-gray: #969CB3;
+        --write: #FFFFFF;
+        --blue: #4285F4;
+        --gray: #969CB3;
+        --gray-300: #E9E7E7;
         --text: #585454;
         --button: #F4EF88;
     }
@@ -28,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
     body {
-        background: var(--bg-write);
+        background: var(--write);
         height: calc(100vh - 52px);
     }
     body, input, textarea, button {
