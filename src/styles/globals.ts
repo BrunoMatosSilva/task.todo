@@ -2,13 +2,17 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
     :root {
-        --red: #E52E4D;
+        --black: #000000;
+        --red-700: #AD1312;
+        --red-300: #FCBABA;
         --write: #FFFFFF;
         --blue: #4285F4;
         --gray: #969CB3;
         --gray-300: #E9E7E7;
+        --green-300: #ADFAC1;
+        --green-700: #0A4419;
         --text: #585454;
-        --button: #F4EF88;
+        --yellow: #F8F0C8;
     }
 
     @media (max-width: 1080px) {

@@ -1,9 +1,11 @@
 import Head from "next/head";
 import { Header } from "../../components/Header";
 import { User } from "../../components/User";
-import { ContentTask } from "../../styles/Task";
+import { ContentNewTask, ContentTask } from "../../styles/Task";
 
 import { AiOutlineSearch, AiOutlineFilter } from "react-icons/Ai";
+import { BiTask } from "react-icons/Bi";
+import { Cards } from "../../components/Cards";
 
 export default function Task() {
     return (
@@ -14,7 +16,7 @@ export default function Task() {
             <Header />
             <User />
             <ContentTask>
-                <section>
+                <section className="menuSearch">
                     <div>
                         <input type="text" />
                         <div id="lupa" ><AiOutlineSearch /></div>
@@ -31,6 +33,12 @@ export default function Task() {
                     </div>
                 </section>
             </ContentTask>
+
+            <ContentNewTask>
+                <button type="button" className="newTask"><span><BiTask /></span>Nova Tarefa</button>
+            </ContentNewTask>
+
+            <Cards />
         </>
     );
 }
