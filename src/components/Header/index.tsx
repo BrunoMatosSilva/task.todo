@@ -9,7 +9,7 @@ export function Header() {
         <>
             <HeaderContent>
                 <div>
-                    <button><AiFillHome /></button>
+                    <span><img src="/logo_small.svg" /></span>
                     <button><GoSignOut /></button>
                 </div>
             </HeaderContent>

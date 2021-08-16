@@ -4,14 +4,15 @@ export const ContentTask = styled.div`
     max-width: 1120px;
     margin: 0 auto;
     display: flex;
+    align-items: center;
+    
 
     section {
         display: flex;
-        width: 100%;
-        justify-content: space-between;
-    
+        align-items: center;
+        margin: 0 auto;
+
     div:first-child {
-        
         input{
             border:#ddd solid 1px;
             border-radius: 5px;
@@ -20,6 +21,10 @@ export const ContentTask = styled.div`
             padding:5px 15px 5px 5px;
             margin-top: 2rem;
             margin-left: 2rem;
+
+            @media screen and (max-width: 375px) {
+            width: 150px;    
+            }
         }
 
         #lupa{
@@ -41,6 +46,7 @@ export const ContentTask = styled.div`
             font-size: 1.2rem;
             vertical-align:middle;
             margin-right: 0.5rem;
+            padding-left: 0.5rem;
         }
 
         select {
@@ -49,6 +55,10 @@ export const ContentTask = styled.div`
             border-radius: 5px;
             padding:5px 15px 5px 5px;
             margin-right: 2rem;
+
+            @media screen and (max-width: 375px) {
+            width: 80px;    
+            }
         }
     }
 
