@@ -54,5 +54,48 @@ export const GlobalStyle = createGlobalStyle`
     button {
         cursor: pointer;
     }
-    `;
+
+    .modal-task-overlay{
+        background: rgba(0, 0 ,0, 0.9);
+
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+
+        @media screen and (max-width: 425px) {
+            bottom: -150px;
+        }
+    }
+    
+    .modal-task-content{
+        width: 100%;
+        max-width: 580px;
+        background-color: var(--write);
+        padding: 3rem;
+        position: relative;
+        border-radius: 5px;
+    }
+
+    .modal-close{
+        position: absolute;
+        font-size: 1.5rem;
+        right: 1.5rem;
+        top: 1.5rem;
+        border: 0;
+        background-color: transparent;
+
+        transition: filter 0.2s;
+
+        &:hover{
+            filter: brightness(0.5);
+        }
+    }
+`;
 

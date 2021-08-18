@@ -1,4 +1,4 @@
-import { UserContent } from "../../styles/User";
+import { UserContent } from "./styles";
 
 export function User() {
     return (

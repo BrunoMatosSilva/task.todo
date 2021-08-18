@@ -1,4 +1,4 @@
-import { ContentCards, ContentTitle } from "../../styles/Cards";
+import { ContentCards, ContentTitle } from "./styles";
 import { BiEdit } from "react-icons/Bi";
 import { FiCheckSquare } from "react-icons/Fi";
 import { AiOutlineCloseSquare } from "react-icons/Ai";
