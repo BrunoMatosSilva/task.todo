@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^1.22.0",
     "@types/styled-components": "^5.1.12",
     "next": "11.1.0",
     "node": "^16.6.1",

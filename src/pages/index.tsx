@@ -1,7 +1,15 @@
 import Head from "next/head";
 import { Content } from "../styles/Login";
+import { supabase } from '../utils/supabaseClient';
 
 export default function Home() {
+
+  async function signInWithGoogle() {
+    const { user, session, error } = await supabase.auth.signIn({
+      provider: 'google'
+    });
+  }
+
   return (
     <>
       <Head>
@@ -20,7 +28,7 @@ export default function Home() {
               </div>
               <p>Organize suas tarefas de forma rapida e organizada</p>
             </section>
-            <button type="button" >
+            <button type="button" onClick={signInWithGoogle}>
               <span>
                 <img src="/google-icon.svg" />
               </span>
