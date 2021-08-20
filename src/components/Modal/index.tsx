@@ -7,7 +7,10 @@ interface NewTaskModalProps {
     onRequestClose: () => void;
 }
 
+Modal.setAppElement(null);
+
 export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
+
     return (
         <Modal
             isOpen={isOpen}
