@@ -1,42 +1,46 @@
-import { createContext, ReactNode, useState } from "react";
-import { supabase } from '../services/supabaseClient'
-
-type User = {
-    id: string;
-    name: string;
-    avatar: string;
-}
+import { User, Session } from '@supabase/supabase-js';
+import { createContext, useEffect, useState } from "react";
+import { supabase } from '../services/supabaseClient';
 
 type AuthContextType = {
-    user: User | undefined,
-    signInWithGoogle: () => Promise<void>;
-    signOut: () => Promise<void>;
-}
-
-type AuthContextProviderProps = {
-    children: ReactNode;
+    user?: User;
+    session?: Session;
 }
 
 export const AuthContext = createContext({} as AuthContextType)
 
-export function AuthContextProvider(props: AuthContextProviderProps) {
+export function AuthContextProvider(props) {
 
     const [user, setUser] = useState<User>();
+    const [session, setSession] = useState<Session>();
 
+    useEffect(() => {
+        const currentSession = supabase.auth.session();
 
-    async function signInWithGoogle() {
+        if (currentSession) {
+            setSession(currentSession)
+            setUser(currentSession.user)
+        }
 
-        const usuario = await supabase.auth.signIn({
-            provider: 'google',
-        });
-    }
+        const { data } = supabase.auth.onAuthStateChange((event, newSession) => {
+            setSession(newSession);
+            setUser(newSession?.user);
 
-    async function signOut() {
-        const { error } = await supabase.auth.signOut();
-    }
+            fetch('/api/auth', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'same-origin',
+                body: JSON.stringify({ event, session: newSession })
+            })
+        })
+
+        return () => {
+            data.unsubscribe();
+        }
+    }, []);
 
     return (
-        <AuthContext.Provider value={{ signInWithGoogle, signOut, user }}>
+        <AuthContext.Provider value={{ user, session }}>
             {props.children}
         </AuthContext.Provider>
     );

@@ -1,13 +1,21 @@
 import Head from "next/head";
-import { useAuth } from "../hooks/useAuth";
+import { supabase } from "../services/supabaseClient";
 import { Content } from "../styles/Login";
 
 export default function Home() {
-  const { signInWithGoogle } = useAuth()
 
-  async function handleSignIn() {
+  async function signInWithGoogle() {
+    const { error } = await supabase.auth.signIn({
+      provider: 'google',
+    },
+      {
+        redirectTo: 'http://localhost:3000/task'
+      })
 
-    await signInWithGoogle();
+    if (error) {
+      console.log(error);
+      return;
+    }
   }
 
   return (
@@ -27,7 +35,7 @@ export default function Home() {
             </div>
             <p>Organize suas tarefas de forma rapida e organizada</p>
           </section>
-          <button type="button" onClick={handleSignIn}>
+          <button type="button" onClick={signInWithGoogle}>
             <span>
               <img src="/google-icon.svg" />
             </span>
