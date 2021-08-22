@@ -1,6 +1,7 @@
 import { UserContent } from "./styles";
 
-export function User() {
+export function User(props) {
+
     return (
         <>
             <UserContent>

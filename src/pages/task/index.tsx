@@ -10,6 +10,7 @@ import { Cards } from "../../components/Cards";
 import { NewTaskModal } from "../../components/Modal";
 
 export default function Task() {
+
     const [isNewTaskModalOpen, setIsNewTaskModalOpen] = useState(false);
 
     function handleOpenNewTaskModal() {

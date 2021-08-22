@@ -4,20 +4,6 @@ import { Content } from "../styles/Login";
 
 export default function Home() {
 
-  async function signInWithGoogle() {
-    const { error } = await supabase.auth.signIn({
-      provider: 'google',
-    },
-      {
-        redirectTo: 'http://localhost:3000/task'
-      })
-
-    if (error) {
-      console.log(error);
-      return;
-    }
-  }
-
   return (
     <>
       <Head>
@@ -35,7 +21,7 @@ export default function Home() {
             </div>
             <p>Organize suas tarefas de forma rapida e organizada</p>
           </section>
-          <button type="button" onClick={signInWithGoogle}>
+          <button type="button">
             <span>
               <img src="/google-icon.svg" />
             </span>
