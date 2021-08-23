@@ -1,6 +1,9 @@
+import useAuth from "../../hooks/useAuth";
 import { UserContent } from "./styles";
 
 export function User(props) {
+
+    const { user, session } = useAuth();
 
     return (
         <>
@@ -8,10 +11,10 @@ export function User(props) {
                 <section>
 
                     <div className="contentName">
-                        <h2>Olá, Bruno Matos</h2>
+                        <h2>Olá, {user.displayName}</h2>
                         <p>Mantenha suas tarefas em ordem</p>
                     </div>
-                    <img src="/avatar.png" alt="avatar usuario" />
+                    <img src={user.photoURL} alt="avatar usuario" />
 
                 </section>
             </UserContent>
