@@ -1,8 +1,12 @@
 import Head from "next/head";
-import { supabase } from "../services/supabaseClient";
+import useAuth from "../hooks/useAuth";
 import { Content } from "../styles/Login";
 
 export default function Home() {
+
+  const { user, signinGoogle } = useAuth();
+
+  console.log('user', user);
 
   return (
     <>
@@ -21,7 +25,7 @@ export default function Home() {
             </div>
             <p>Organize suas tarefas de forma rapida e organizada</p>
           </section>
-          <button type="button">
+          <button type="button" onClick={() => signinGoogle()}>
             <span>
               <img src="/google-icon.svg" />
             </span>
