@@ -3,7 +3,7 @@ import { UserContent } from "./styles";
 
 export function User(props) {
 
-    const { user, session } = useAuth();
+    const { user } = useAuth();
 
     return (
         <>
@@ -11,10 +11,10 @@ export function User(props) {
                 <section>
 
                     <div className="contentName">
-                        <h2>Olá, {user.displayName}</h2>
+                        <h2>Olá, {user.name}</h2>
                         <p>Mantenha suas tarefas em ordem</p>
                     </div>
-                    <img src={user.photoURL} alt="avatar usuario" />
+                    <img src={user.avatar} alt="avatar usuario" />
 
                 </section>
             </UserContent>

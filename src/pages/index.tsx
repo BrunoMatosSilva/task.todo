@@ -4,7 +4,7 @@ import { Content } from "../styles/Login";
 
 export default function Home() {
 
-  const { user, signinGoogle } = useAuth();
+  const { user, signInWithGoogle } = useAuth();
 
   console.log('user', user);
 
@@ -25,7 +25,7 @@ export default function Home() {
             </div>
             <p>Organize suas tarefas de forma rapida e organizada</p>
           </section>
-          <button type="button" onClick={() => signinGoogle()}>
+          <button type="button" onClick={() => signInWithGoogle()}>
             <span>
               <img src="/google-icon.svg" />
             </span>

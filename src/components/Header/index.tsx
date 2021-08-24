@@ -1,6 +1,5 @@
 import { GoSignOut } from 'react-icons/Go';
 import Link from 'next/link';
-import { supabase } from '../../services/supabaseClient';
 
 import { HeaderContent } from './styles';
 

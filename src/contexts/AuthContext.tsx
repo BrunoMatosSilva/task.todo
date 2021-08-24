@@ -1,52 +1,73 @@
-import { useState, useEffect, createContext } from 'react';
-import Router from 'next/router';
-import cookie from 'js-cookie';
+import Router from "next/router";
+import { createContext, ReactNode, useEffect, useState } from "react";
+import { firebase, auth } from "../services/firebase";
 
-import firebase from '../services/firebase';
+type User = {
+    id: string;
+    name: string;
+    avatar: string;
+}
 
-const AuthContext = createContext({});
+type AuthContextType = {
+    user: User | undefined;
+    signInWithGoogle: () => Promise<void>;
+}
 
-export function AuthProvider({ children }) {
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+type AuthContextProviderProps = {
+    children: ReactNode;
+}
 
-    const signinGoogle = () => {
-        try {
-            setLoading(true);
-            return firebase
-                .auth()
-                .signInWithPopup(new firebase.auth.GoogleAuthProvider())
-                .then((response) => {
-                    setUser(response.user);
-                    Router.push('/task');
-                });
-        } finally {
-            setLoading(false);
+export const AuthContext = createContext({} as AuthContextType);
+
+export function AuthContextProvider(props: AuthContextProviderProps) {
+
+    const [user, setUser] = useState<User>();
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            if (user) {
+                const { displayName, photoURL, uid } = user
+
+                if (!displayName || !photoURL) {
+                    throw new Error('Missing information from Google Account');
+                }
+
+                setUser({
+                    id: uid,
+                    name: displayName,
+                    avatar: photoURL
+                })
+            }
+        })
+        return () => {
+            unsubscribe();
+        }
+    }, [])
+
+    async function signInWithGoogle() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        const result = await auth.signInWithPopup(provider);
+
+        if (result.user) {
+            Router.push('/task')
+            const { displayName, photoURL, uid } = result.user
+
+
+            if (!displayName || !photoURL) {
+                throw new Error('Missing information from Google Account');
+            }
+
+            setUser({
+                id: uid,
+                name: displayName,
+                avatar: photoURL
+            })
         }
     }
-
-    const signout = async () => {
-        try {
-            Router.push('/');
-            await firebase.auth().signOut();
-
-        } finally {
-            setLoading(false);
-        }
-    }
-
-    /* useEffect(() => {
-        const unsubscribe = firebase.auth().onIdTokenChanged({});
-        return () => unsubscribe();
-    }, []); */
-
     return (
-        <AuthContext.Provider value={{ user, loading, signinGoogle, signout }}>
-            {children}
+        <AuthContext.Provider value={{ user, signInWithGoogle }}>
+            {props.children}
         </AuthContext.Provider>
     );
 }
-
-export const AuthConsumer = AuthContext.Consumer;
-
-export default AuthContext;
