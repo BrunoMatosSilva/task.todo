@@ -11,10 +11,10 @@ export function User(props) {
                 <section>
 
                     <div className="contentName">
-                        <h2>Olá, {user.name}</h2>
+                        <h2>Olá, {user?.name}</h2>
                         <p>Mantenha suas tarefas em ordem</p>
                     </div>
-                    <img src={user.avatar} alt="avatar usuario" />
+                    <img src={user?.avatar} alt="avatar usuario" />
 
                 </section>
             </UserContent>
