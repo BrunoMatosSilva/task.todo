@@ -6,8 +6,6 @@ export default function Home() {
 
   const { user, signInWithGoogle } = useAuth();
 
-  console.log('user', user);
-
   return (
     <>
       <Head>
