@@ -14,7 +14,6 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
     const { user } = useAuth();
     const [newTask, setNewTask] = useState('');
     const [newDescription, setNewDescription] = useState('');
-    const [newStatus, setNewStatus] = useState('pendente');
 
     async function handleCreateTask(event: FormEvent) {
         event.preventDefault();
@@ -31,9 +30,19 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
         const firebaseTask = await taskRef.push({
             title: newTask,
             authorId: user?.id,
-            status: newStatus,
-            descrição: newDescription
-        })
+            descrição: newDescription,
+            data: new Date().toLocaleDateString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            }),
+            isPending: true,
+            isFinished: false,
+            isCanceled: false
+        });
+
+        setNewTask('');
+        setNewDescription('');
     }
 
     return (
@@ -60,12 +69,14 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
                     <input
                         type="text"
                         onChange={event => setNewTask(event.target.value)}
+                        value={newTask}
                     />
                 </div>
                 <div>
                     <label>Descrição:</label>
                     <textarea
                         onChange={event => setNewDescription(event.target.value)}
+                        value={newDescription}
                     />
                 </div>
 
