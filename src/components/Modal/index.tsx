@@ -14,6 +14,7 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
     const { user } = useAuth();
     const [newTask, setNewTask] = useState('');
     const [newDescription, setNewDescription] = useState('');
+    const [newStatus, setNewStatus] = useState('pendente');
 
     async function handleCreateTask(event: FormEvent) {
         event.preventDefault();
@@ -30,6 +31,7 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
         const firebaseTask = await taskRef.push({
             title: newTask,
             authorId: user?.id,
+            status: newStatus,
             descrição: newDescription
         })
     }
