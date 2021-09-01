@@ -1,5 +1,5 @@
 import Head from "next/head";
-import useAuth from "../hooks/useAuth";
+import { useAuth } from "../hooks/useAuth";
 import { Content } from "../styles/Login";
 
 export default function Home() {

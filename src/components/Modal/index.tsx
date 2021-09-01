@@ -3,7 +3,7 @@ import { IoMdClose } from "react-icons/Io";
 import { FormEvent, useState } from 'react'
 import { ContainerModal } from './styles';
 import { database } from '../../services/firebase';
-import useAuth from '../../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 
 interface NewTaskModalProps {
     isOpen: boolean;
