@@ -8,8 +8,6 @@ import { AiOutlineSearch, AiOutlineFilter } from "react-icons/Ai";
 import { BiTask } from "react-icons/Bi";
 import { Cards } from "../../components/Cards";
 import { NewTaskModal } from "../../components/Modal";
-import { useEffect } from "react";
-import { database } from "../../services/firebase";
 
 export default function Task() {
 
@@ -22,14 +20,6 @@ export default function Task() {
     function handleCloseNewTaskModal() {
         setIsNewTaskModalOpen(false);
     }
-
-    useEffect(() => {
-        const taskRef = database.ref(`tasks`);
-
-        taskRef.once('value', task => {
-            console.log(task.val());
-        })
-    }, []);
 
     return (
         <>
@@ -65,8 +55,14 @@ export default function Task() {
                 isOpen={isNewTaskModalOpen}
                 onRequestClose={handleCloseNewTaskModal}
             />
+            <Cards
+                key='{task.id}'
+                title='Caminhada'
+                description='Caminhar 1 hora'
+                date='02/09/2021'
+            />
+            )
 
-            <Cards />
         </>
     );
 }

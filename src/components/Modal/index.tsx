@@ -30,8 +30,8 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
         const firebaseTask = await taskRef.push({
             title: newTask,
             authorId: user?.id,
-            descrição: newDescription,
-            data: new Date().toLocaleDateString('pt-BR', {
+            description: newDescription,
+            date: new Date().toLocaleDateString('pt-BR', {
                 day: '2-digit',
                 month: '2-digit',
                 year: 'numeric'
