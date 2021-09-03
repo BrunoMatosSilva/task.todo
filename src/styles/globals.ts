@@ -56,7 +56,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .modal-task-overlay{
-        background: rgba(0, 0 ,0, 0.9);
+        background: rgba(0, 0 ,0, 0.99);
 
         position: fixed;
         top: 0;

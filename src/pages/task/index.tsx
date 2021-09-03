@@ -41,7 +41,6 @@ export default function Task() {
                             <option value="all">All</option>
                             <option value="completed">Finalizadas</option>
                             <option value="uncompleted">Pendentes</option>
-                            <option value="cancelled">Canceladas</option>
                         </select>
                     </div>
                 </section>
@@ -55,14 +54,7 @@ export default function Task() {
                 isOpen={isNewTaskModalOpen}
                 onRequestClose={handleCloseNewTaskModal}
             />
-            <Cards
-                key='{task.id}'
-                title='Caminhada'
-                description='Caminhar 1 hora'
-                date='02/09/2021'
-            />
-            )
-
+            <Cards />
         </>
     );
 }
