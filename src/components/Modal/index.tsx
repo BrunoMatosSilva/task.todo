@@ -25,9 +25,9 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
             return;
         }
 
-        const taskRef = database.ref('tasks');
+        const todoRef = database.ref('Todo');
 
-        const firebaseTask = await taskRef.push({
+        const firebaseTask = await todoRef.push({
             title: newTask,
             authorId: user?.id,
             description: newDescription,

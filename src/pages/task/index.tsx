@@ -2,12 +2,12 @@ import Head from "next/head";
 import { useState } from "react";
 import { Header } from "../../components/Header";
 import { User } from "../../components/User";
-import { ContentNewTask, ContentTask } from "../../styles/Task";
+import { ContentNewTask, ContentTask, ContentTitle } from "../../styles/Task";
 
 import { AiOutlineSearch, AiOutlineFilter } from "react-icons/Ai";
 import { BiTask } from "react-icons/Bi";
-import { Cards } from "../../components/Cards";
 import { NewTaskModal } from "../../components/Modal";
+import { Tasklist } from "../../components/TaskList";
 
 export default function Task() {
 
@@ -54,7 +54,11 @@ export default function Task() {
                 isOpen={isNewTaskModalOpen}
                 onRequestClose={handleCloseNewTaskModal}
             />
-            <Cards />
+
+            <ContentTitle>
+                <h2>Tarefas</h2><span>10 ao total</span>
+            </ContentTitle>
+            <Tasklist />
         </>
     );
 }

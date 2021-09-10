@@ -14,13 +14,13 @@ type TaskType = {
 }
 
 export function useTask() {
-    const [tasks, setTasks] = useState<TaskType[]>([]);
+    const [todos, setTodos] = useState<TaskType[]>([]);
 
     useEffect(() => {
-        const taskRef = database.ref('tasks');
+        const todoRef = database.ref("Todo");
 
-        taskRef.on('value', task => {
-            const databaseTask = task.val();
+        todoRef.on('value', todo => {
+            const databaseTask = todo.val();
             const firebaseTasks = databaseTask.task ?? {};
 
             const parsedTasks = firebaseTasks.map(([key, value]) => {
@@ -36,10 +36,10 @@ export function useTask() {
                 }
             })
 
-            setTasks(parsedTasks);
+            setTodos(parsedTasks);
         })
 
     }, [])
 
-    return { tasks }
+    return { todos }
 }
