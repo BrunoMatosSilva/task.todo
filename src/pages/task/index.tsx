@@ -6,7 +6,7 @@ import { ContentNewTask, ContentTask, ContentTitle } from "../../styles/Task";
 
 import { AiOutlineSearch, AiOutlineFilter } from "react-icons/Ai";
 import { BiTask } from "react-icons/Bi";
-import { NewTaskModal } from "../../components/Modal";
+import { NewTaskModal } from "../../components/NewTaskModal";
 import { Tasklist } from "../../components/TaskList";
 
 export default function Task() {
