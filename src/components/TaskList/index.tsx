@@ -14,7 +14,6 @@ type TaskType = {
 }
 
 export function Tasklist() {
-
     const [todoList, setTodoList] = useState<TaskType[]>([]);
 
     useEffect(() => {
@@ -32,9 +31,7 @@ export function Tasklist() {
 
     return (
         <div>
-            {todoList
-                ? todoList.map((todo, index) => <Cards todo={todo} key={index} />)
-                : ""}
+            {todoList ? todoList.map((todo, index) => <Cards todo={todo} key={index} />) : ""}
         </div>
     );
 }

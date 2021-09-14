@@ -5,9 +5,11 @@ import { BiEdit } from "react-icons/Bi";
 import { FiCheckSquare } from "react-icons/Fi";
 import { AiOutlineCloseSquare } from "react-icons/Ai";
 import { UpdateTaskModal } from "../UpdateTaskModal";
+import { useAuth } from "../../hooks/useAuth";
 
 export function Cards({ todo }) {
 
+    const { user } = useAuth();
     const [isUpdateTaskModal, setIsUpdateTaskModal] = useState(false);
 
     function handleOpenUpdateTaskModal() {
@@ -23,31 +25,37 @@ export function Cards({ todo }) {
         todoRef.remove();
     };
 
-    return (
-        <>
-            <ContentCards>
-                <div className="bgTask pending">
-                    <div>
-                        <h3>{todo.title}</h3>
-                        <span>
-                            <button onClick={handleOpenUpdateTaskModal}><BiEdit className="editButton" /></button>
-                            <button><FiCheckSquare className="completedButton" /></button>
-                            <button onClick={handleDeletedTask}><AiOutlineCloseSquare className="cancelButton" /></button>
-                        </span>
-                    </div>
-                    <div>
-                        <p>{todo.description}</p>
-                        <time>
-                            {todo.date}
-                        </time>
-                    </div>
-                </div>
-            </ContentCards>
+    if (user.id !== todo.authorId) {
+        return ''
+    }
 
-            <UpdateTaskModal
-                isOpen={isUpdateTaskModal}
-                onRequestClose={handleCloseUpdateTaskModal}
-            />
-        </>
-    );
+    if (user.id === todo.authorId) {
+        return (
+            <>
+                <ContentCards>
+                    <div className="bgTask pending">
+                        <div>
+                            <h3>{todo.title}</h3>
+                            <span>
+                                <button onClick={handleOpenUpdateTaskModal}><BiEdit className="editButton" /></button>
+                                <button><FiCheckSquare className="completedButton" /></button>
+                                <button onClick={handleDeletedTask}><AiOutlineCloseSquare className="cancelButton" /></button>
+                            </span>
+                        </div>
+                        <div>
+                            <p>{todo.description}</p>
+                            <time>
+                                {todo.date}
+                            </time>
+                        </div>
+                    </div>
+                </ContentCards>
+
+                <UpdateTaskModal
+                    isOpen={isUpdateTaskModal}
+                    onRequestClose={handleCloseUpdateTaskModal}
+                />
+            </>
+        );
+    }
 }

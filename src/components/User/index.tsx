@@ -16,6 +16,7 @@ export function User(props) {
                     </div>
                     <img src={user?.avatar} alt="avatar usuario" />
 
+
                 </section>
             </UserContent>
         </>
