@@ -29,19 +29,18 @@ export const ContentCards = styled.section`
         & + div {
                 margin-top: 8px;
             }
-    }
 
-    .pending {
+            &.pending {
         background-color: var(--yellow);
     }
 
-    .completed {
-        background-color: var(--green-300);
+        &.completed {
+            background-color: var(--green-300);
     }
 
-    .cancelled {
-        background-color: var(--red-300);
     }
+
+   
 
     .editButton {
         font-size: 1.8rem;

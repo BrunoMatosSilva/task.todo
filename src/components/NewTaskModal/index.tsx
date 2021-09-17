@@ -27,7 +27,7 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
 
         const todoRef = database.ref('Todo');
 
-        const firebaseTask = await todoRef.push({
+        await todoRef.push({
             title: newTask,
             authorId: user?.id,
             description: newDescription,
@@ -37,12 +37,12 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
                 year: 'numeric'
             }),
             isPending: true,
-            isFinished: false,
-            isCanceled: false
+            isFinished: false
         });
 
         setNewTask('');
         setNewDescription('');
+        onRequestClose();
     }
 
     return (

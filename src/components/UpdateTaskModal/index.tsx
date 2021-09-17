@@ -54,7 +54,6 @@ export function UpdateTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
                         type="text"
                         onChange={event => setNewTask(event.target.value)}
                         value={newTask}
-
                     />
                 </div>
                 <div>

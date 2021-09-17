@@ -8,7 +8,6 @@ type TaskType = {
     title: string,
     description: string,
     date: string,
-    isCanceled: boolean,
     isFinished: boolean,
     isPending: boolean,
 }
