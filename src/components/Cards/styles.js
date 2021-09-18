@@ -18,11 +18,24 @@ export const ContentCards = styled.section`
             justify-content: space-between;
             padding: .5rem;
 
+            .completedIcon{
+                filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(60%) contrast(119%);
+            }
+
+            .deletedIcon{
+               filter: invert(70%) sepia(100%) brightness(20%) hue-rotate(312deg) saturate(894%);
+            }
+
             button {
                 background: transparent;
                 border: none;
                 vertical-align: middle;
                 padding-left: .5rem;
+                transition: filter 0.2s;
+        
+                &:hover {
+                    filter: brightness(0.9)
+                }  
             }
         }
 
@@ -38,23 +51,6 @@ export const ContentCards = styled.section`
             background-color: var(--green-300);
     }
 
-    }
-
-   
-
-    .editButton {
-        font-size: 1.8rem;
-        color: var(--black);
-    }
-
-    .completedButton {
-        font-size: 1.8rem;
-        color: var(--green-700);
-    }
-
-    .cancelButton {
-        font-size: 1.8rem;
-        color: var(--red-700);
     }
 
     span {

@@ -27,7 +27,7 @@ export default function Task() {
             <Header />
             <User />
             <ContentNewTask>
-                <button type="button" className="newTask" onClick={handleOpenNewTaskModal}>Nova Tarefa</button>
+                <button type="button" className="newTask" onClick={handleOpenNewTaskModal}><span><img src="clipboard.svg" /></span>Nova Tarefa</button>
             </ContentNewTask>
 
             <NewTaskModal

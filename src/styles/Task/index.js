@@ -16,10 +16,21 @@ export const ContentNewTask = styled.div`
         font-size: 1rem;
         width: 140px;
         height: 44px;
+        transition: filter 0.2s;
         
+        &:hover {
+            filter: brightness(0.9)
+        }
 
         span {
             padding-right: .5rem;
+            
+            img {
+                width: 18px;
+                vertical-align: middle;
+                filter: invert(90%) brightness(100%) saturate(500%) contrast(500%);
+            }
+            
 
             @media screen and (max-width: 425px) {
             font-size: 1.5rem;

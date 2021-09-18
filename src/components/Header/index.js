@@ -15,7 +15,7 @@ export function Header() {
                 <div>
                     <span><img src="/logo_small.svg" /></span>
                     <Link href="/">
-                        <button onClick={signOutWithGoogle}><h3>Sair</h3></button>
+                        <button onClick={signOutWithGoogle}><img src="log-out.svg" /></button>
                     </Link>
                 </div>
             </HeaderContent>

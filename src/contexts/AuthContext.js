@@ -1,5 +1,5 @@
 import Router from "next/router";
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { firebase, auth } from "../services/firebase";
 
 

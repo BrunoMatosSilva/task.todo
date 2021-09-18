@@ -68,7 +68,7 @@ export function NewTaskModal({ isOpen, onRequestClose }) {
                 onClick={onRequestClose}
                 className="modal-close"
             >
-                X
+                <img src="x.svg" />
             </button>
 
             <ContainerModal onSubmit={handleCreateTask}>

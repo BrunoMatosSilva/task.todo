@@ -24,6 +24,16 @@ export const HeaderContent = styled.div`
             background: transparent;
             border: none;
             color: var(--write);
+            transition: filter 0.2s;
+        
+        &:hover {
+            filter: brightness(0.9)
+        }
+
+            img {
+                width: 36px;
+                filter: invert(90%) brightness(100%) saturate(500%) contrast(500%);
+            }
         }
     }
 `;
