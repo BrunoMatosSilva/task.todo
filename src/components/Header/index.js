@@ -1,4 +1,3 @@
-import { GoSignOut } from 'react-icons/Go';
 import Link from 'next/link';
 
 import { HeaderContent } from './styles';
