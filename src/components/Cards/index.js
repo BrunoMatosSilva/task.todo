@@ -26,7 +26,7 @@ export function Cards({ todo }) {
         return (
             <>
                 <ContentCards>
-                    <div className={`bgTask ${todo.isFinished ? 'completed' : ''} ${todo.isPending ? 'pending' : ''}`}>
+                    <div className={`bgTask ${todo.isFinished ? 'completed' : ""} ${todo.isPending ? 'pending' : ""}`}>
                         <div>
                             <h3>{todo.title}</h3>
                             <span>

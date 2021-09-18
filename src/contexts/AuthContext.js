@@ -2,26 +2,12 @@ import Router from "next/router";
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { firebase, auth } from "../services/firebase";
 
-type User = {
-    id: string;
-    name: string;
-    avatar: string;
-}
 
-type AuthContextType = {
-    user: User | undefined;
-    signInWithGoogle: () => Promise<void>;
-}
+export const AuthContext = createContext({});
 
-type AuthContextProviderProps = {
-    children: ReactNode;
-}
+export function AuthContextProvider({ children }) {
 
-export const AuthContext = createContext({} as AuthContextType);
-
-export function AuthContextProvider(props: AuthContextProviderProps) {
-
-    const [user, setUser] = useState<User>();
+    const [user, setUser] = useState();
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
@@ -68,7 +54,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
 
     return (
         <AuthContext.Provider value={{ user, signInWithGoogle }}>
-            {props.children}
+            {children}
         </AuthContext.Provider>
     );
 }

@@ -8,17 +8,12 @@ import { ContainerModal } from './styles';
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 
-interface NewTaskModalProps {
-    isOpen: boolean;
-    onRequestClose: () => void;
-}
-
-export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
+export function NewTaskModal({ isOpen, onRequestClose }) {
     const { user } = useAuth();
     const [newTask, setNewTask] = useState('');
     const [newDescription, setNewDescription] = useState('');
 
-    async function handleCreateTask(event: FormEvent) {
+    async function handleCreateTask(event) {
         event.preventDefault();
 
         if (newTask.trim() === '') {

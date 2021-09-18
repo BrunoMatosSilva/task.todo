@@ -1,7 +1,7 @@
 import { useAuth } from "../../hooks/useAuth";
 import { UserContent } from "./styles";
 
-export function User(props): any {
+export function User(props) {
 
     const { user } = useAuth();
 

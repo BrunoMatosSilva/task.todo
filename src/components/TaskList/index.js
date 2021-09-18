@@ -3,18 +3,8 @@ import { useState, useEffect } from 'react'
 import { Cards } from "../Cards";
 import { ContentTitle } from "./styles";
 
-type TaskType = {
-    id: string,
-    authorId: string,
-    title: string,
-    description: string,
-    date: string,
-    isFinished: boolean,
-    isPending: boolean,
-}
-
 export function Tasklist() {
-    const [todoList, setTodoList] = useState<TaskType[]>([]);
+    const [todoList, setTodoList] = useState([]);
 
     useEffect(() => {
         const todoRef = database.ref("Todo");
@@ -34,7 +24,7 @@ export function Tasklist() {
                 <h2>Tarefas</h2>
             </ContentTitle>
 
-            {todoList ? todoList.map((todo, index) => <Cards todo={todo} key={index} />) : ""}
+            {todoList ? todoList.map((todo, index) => <Cards todo={todo} key={index} />) : ''}
         </div>
     );
 }
