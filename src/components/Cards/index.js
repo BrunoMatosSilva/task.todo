@@ -1,7 +1,5 @@
 import { ContentCards } from "./styles";
 import { database } from "../../services/firebase";
-import { FiCheckSquare } from "react-icons/Fi";
-import { AiOutlineCloseSquare } from "react-icons/Ai";
 import { useAuth } from "../../hooks/useAuth";
 
 export function Cards({ todo }) {
@@ -32,10 +30,10 @@ export function Cards({ todo }) {
                             <span>
                                 {!todo.isFinished && (
                                     <>
-                                        <button onClick={() => handleCompletedTask()}><FiCheckSquare className="completedButton" /></button>
+                                        <button onClick={() => handleCompletedTask()}>C</button>
                                     </>
                                 )}
-                                <button onClick={() => handleDeletedTask()}><AiOutlineCloseSquare className="cancelButton" /></button>
+                                <button onClick={() => handleDeletedTask()}>X</button>
 
                             </span>
                         </div>

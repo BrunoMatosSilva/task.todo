@@ -1,5 +1,4 @@
 import Modal from 'react-modal';
-import { IoMdClose } from "react-icons/Io";
 import { useState } from 'react'
 import { database } from '../../services/firebase';
 import { useAuth } from '../../hooks/useAuth';
@@ -69,7 +68,7 @@ export function NewTaskModal({ isOpen, onRequestClose }) {
                 onClick={onRequestClose}
                 className="modal-close"
             >
-                <IoMdClose />
+                X
             </button>
 
             <ContainerModal onSubmit={handleCreateTask}>

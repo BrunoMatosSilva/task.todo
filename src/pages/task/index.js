@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Header } from "../../components/Header";
 import { User } from "../../components/User";
 import { ContentNewTask } from "../../styles/Task";
-import { BiTask } from "react-icons/Bi";
 import { NewTaskModal } from "../../components/NewTaskModal";
 import { Tasklist } from "../../components/TaskList";
 
@@ -28,7 +27,7 @@ export default function Task() {
             <Header />
             <User />
             <ContentNewTask>
-                <button type="button" className="newTask" onClick={handleOpenNewTaskModal}><span><BiTask /></span>Nova Tarefa</button>
+                <button type="button" className="newTask" onClick={handleOpenNewTaskModal}>Nova Tarefa</button>
             </ContentNewTask>
 
             <NewTaskModal
