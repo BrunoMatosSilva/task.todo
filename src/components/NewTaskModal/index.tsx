@@ -5,6 +5,9 @@ import { database } from '../../services/firebase';
 import { useAuth } from '../../hooks/useAuth';
 import { ContainerModal } from './styles';
 
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
+
 interface NewTaskModalProps {
     isOpen: boolean;
     onRequestClose: () => void;
@@ -19,9 +22,25 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
         event.preventDefault();
 
         if (newTask.trim() === '') {
+            Toastify({
+                text: "Coloque um Titulo!",
+                gravity: "top",
+                position: "center",
+                backgroundColor: "linear-gradient(to right, #4285F4, #0A4419)",
+                className: "alert",
+                duration: 2000,
+            }).showToast();
             return;
         }
         if (newDescription.trim() === '') {
+            Toastify({
+                text: "Prencha o campo Descrição!",
+                gravity: "top",
+                position: "center",
+                backgroundColor: "linear-gradient(to right, #4285F4, #0A4419)",
+                className: "alert",
+                duration: 2000,
+            }).showToast();
             return;
         }
 
@@ -39,9 +58,6 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
             isPending: true,
             isFinished: false
         });
-
-        setNewTask('');
-        setNewDescription('');
         onRequestClose();
     }
 
@@ -68,6 +84,7 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
                     <label>Titulo:</label>
                     <input
                         type="text"
+                        placeholder="Escreva um Titulo"
                         onChange={event => setNewTask(event.target.value)}
                         value={newTask}
                     />
@@ -75,12 +92,13 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
                 <div>
                     <label>Descrição:</label>
                     <textarea
+                        placeholder="Descreva a tarefa"
                         onChange={event => setNewDescription(event.target.value)}
                         value={newDescription}
                     />
                 </div>
 
-                <button type="submit">Cadastrar</button>
+                <button type="submit" >Cadastrar</button>
             </ContainerModal>
         </Modal>
     );
