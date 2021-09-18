@@ -30,10 +30,10 @@ export function Cards({ todo }) {
                             <span>
                                 {!todo.isFinished && (
                                     <>
-                                        <button onClick={() => handleCompletedTask()}><img src="checkcompleted.svg" className="completedIcon" /></button>
+                                        <button onClick={() => handleCompletedTask()}><img src="checked.png" className="completedIcon" /></button>
                                     </>
                                 )}
-                                <button onClick={() => handleDeletedTask()}><img src="xsquare.svg" className="deletedIcon" /></button>
+                                <button onClick={() => handleDeletedTask()}><img src="close.png" className="deletedIcon" /></button>
 
                             </span>
                         </div>

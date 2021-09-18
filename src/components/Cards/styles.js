@@ -19,11 +19,11 @@ export const ContentCards = styled.section`
             padding: .5rem;
 
             .completedIcon{
-                filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(60%) contrast(119%);
+                width: 32px;
             }
 
             .deletedIcon{
-               filter: invert(70%) sepia(100%) brightness(20%) hue-rotate(312deg) saturate(894%);
+               width: 32px;
             }
 
             button {
