@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import { IoMdClose } from "react-icons/Io";
-import { FormEvent, useState } from 'react'
+import { useState } from 'react'
 import { database } from '../../services/firebase';
 import { useAuth } from '../../hooks/useAuth';
 import { ContainerModal } from './styles';
