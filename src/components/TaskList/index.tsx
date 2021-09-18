@@ -1,6 +1,7 @@
 import { database } from "../../services/firebase";
 import { useState, useEffect } from 'react'
 import { Cards } from "../Cards";
+import { ContentTitle } from "./styles";
 
 type TaskType = {
     id: string,
@@ -23,13 +24,16 @@ export function Tasklist() {
             for (let id in todos) {
                 todoList.push({ id, ...todos[id] });
             }
-            setTodoList(todoList)
-            console.log(todoList);
+            setTodoList(todoList);
         })
     }, []);
 
     return (
         <div>
+            <ContentTitle>
+                <h2>Tarefas</h2>
+            </ContentTitle>
+
             {todoList ? todoList.map((todo, index) => <Cards todo={todo} key={index} />) : ""}
         </div>
     );

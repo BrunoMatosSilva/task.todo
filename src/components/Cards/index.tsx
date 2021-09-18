@@ -1,28 +1,12 @@
 import { ContentCards } from "./styles";
 import { database } from "../../services/firebase";
-import { useState } from "react";
-import { BiEdit } from "react-icons/Bi";
 import { FiCheckSquare } from "react-icons/Fi";
 import { AiOutlineCloseSquare } from "react-icons/Ai";
-import { UpdateTaskModal } from "../UpdateTaskModal";
 import { useAuth } from "../../hooks/useAuth";
 
-export function Cards({
-    todo,
-    isFinished = false,
-    isPending = false
-}: any) {
+export function Cards({ todo }) {
 
     const { user } = useAuth();
-    const [isUpdateTaskModal, setIsUpdateTaskModal] = useState(false);
-
-    function handleOpenUpdateTaskModal() {
-        setIsUpdateTaskModal(true);
-    };
-
-    function handleCloseUpdateTaskModal() {
-        setIsUpdateTaskModal(false);
-    };
 
     async function handleDeletedTask() {
         await database.ref(`Todo/${todo.id}`).remove();
@@ -48,11 +32,11 @@ export function Cards({
                             <span>
                                 {!todo.isFinished && (
                                     <>
-                                        <button onClick={handleOpenUpdateTaskModal}><BiEdit className="editButton" /></button>
+                                        <button onClick={() => handleCompletedTask()}><FiCheckSquare className="completedButton" /></button>
                                     </>
                                 )}
                                 <button onClick={() => handleDeletedTask()}><AiOutlineCloseSquare className="cancelButton" /></button>
-                                <button onClick={() => handleCompletedTask()}><FiCheckSquare className="completedButton" /></button>
+
                             </span>
                         </div>
                         <div>
@@ -63,11 +47,6 @@ export function Cards({
                         </div>
                     </div>
                 </ContentCards>
-
-                <UpdateTaskModal
-                    isOpen={isUpdateTaskModal}
-                    onRequestClose={handleCloseUpdateTaskModal}
-                />
             </>
         );
     }

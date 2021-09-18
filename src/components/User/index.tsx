@@ -1,7 +1,7 @@
 import { useAuth } from "../../hooks/useAuth";
 import { UserContent } from "./styles";
 
-export function User(props) {
+export function User(props): any {
 
     const { user } = useAuth();
 
@@ -15,7 +15,6 @@ export function User(props) {
                         <p>Mantenha suas tarefas em ordem</p>
                     </div>
                     <img src={user?.avatar} alt="avatar usuario" />
-
 
                 </section>
             </UserContent>
