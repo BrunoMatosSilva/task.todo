@@ -1,4 +1,11 @@
-<h1 align="center">task.todo</h1>
+<h1 align="center">Task.todo</h1>
+<p align="center">Percebi que muitos processos solicitam a criação de um "Organizador de tarefas", utilizei esse conhecimento para desenvolver o meu e praticar algumas funções basicas de front-end e algumas de back-end desenvolvendo esse Tasktodo de forma responsiva.</p>
+
+[Figma Projeto](https://www.figma.com/file/GW8UoL3Pf2bKDurO4K1mVW/Task.todo)
+
+<div align="center"><img src="https://img.shields.io/github/issues/BrunoMatosSilva/canarilmatos" />
+<img src="https://img.shields.io/github/forks/BrunoMatosSilva/canarilmatos" />
+<img src="https://img.shields.io/github/stars/BrunoMatosSilva/canarilmatos" /></div>
 
 ## Login com Google
 
@@ -23,15 +30,6 @@
 <h1 align="center">
 <img src="https://i.gyazo.com/79af09da3df1415b0280c5faf9903df8.gif" />
 </h1>
-
-<h1 align="center">CM - Canaril Matos</h1>
-<p align="center">Foi desenvolvido um Website/Blog com o tema de criação de canarios de raça. Ideia e utilizar o blog como uma central de conhecimento para criadores, além de demonstrar alguns canarios do criador do site.</p>
-
-[Figma Projeto](https://www.figma.com/file/wjsUCTQxEdJb5C3S125wu3/Canaril-Matos?node-id=0%3A1)
-
-<div align="center"><img src="https://img.shields.io/github/issues/BrunoMatosSilva/canarilmatos" />
-<img src="https://img.shields.io/github/forks/BrunoMatosSilva/canarilmatos" />
-<img src="https://img.shields.io/github/stars/BrunoMatosSilva/canarilmatos" /></div>
 
 <h1 align="center">Tecnologias Usadas</h1>
 <ul>
