@@ -82,4 +82,4 @@ $ yarn dev
 
 <h1 align="center">Link do Projeto Online</h1>
 
-[Canaril Matos](https://tasktodo.vercel.app)
+[Task.Todo](https://tasktodo.vercel.app)
