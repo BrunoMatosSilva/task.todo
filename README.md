@@ -58,12 +58,12 @@ Git, Node.js.</p>
 
 ```bash
 # Abra um terminal e copie esse repositorio e cole esse comando:
-git clone https://github.com/BrunoMatosSilva/canarilmatos.git 
+git clone https://github.com/BrunoMatosSilva/task.todo.git 
 ```
 
 ```bash
 # Acesse a pasta da aplicação
-$ cd canarilmatos
+$ cd task.todo
 
 # Crie um arquivo .env.local e coloque as variaveis
 NEXT_PUBLIC_API_KEY=
